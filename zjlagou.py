@@ -6,6 +6,7 @@ write the code, change the worls
 import json
 import sys
 import time
+import os
 
 import numpy as np
 import pandas as pd
@@ -25,16 +26,18 @@ class Spider(object):
         self.headers = {
             'Host': 'www.lagou.com',
             'Origin': 'https://www.lagou.com',
-            'Referer': 'https://www.lagou.com/jobs/list_%E5%89%8D%E7%AB%AF?labelWords=&fromSearch=true&suginput=',
+            'Referer': 'https://www.lagou.com/jobs/list_python?labelWords=&fromSearch=true&suginput=',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
             'X-Requested-With': 'XMLHttpRequest',
-            'Cookie': "user_trace_token=20181224221417-14f12a99-306e-4271-b1ae-ea8181048de5; _ga=GA1.2.495178308.1545660858; LGUID=20181224221419-340dd7c0-0786-11e9-a954-5254005c3644; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22167e2527ce71e1-06b5de01b08e72-b781636-1049088-167e2527ce9859%22%2C%22%24device_id%22%3A%22167e2527ce71e1-06b5de01b08e72-b781636-1049088-167e2527ce9859%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; index_location_city=%E6%88%90%E9%83%BD; JSESSIONID=ABAAABAABEEAAJAC6379330CE99F81B2553EA4C23F89D5B; _gid=GA1.2.1288646708.1547630032; _gat=1; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1546783702,1546951443,1547301394,1547630032; LGSID=20190116171352-0a90f1f2-196f-11e9-b67a-5254005c3644; PRE_UTM=; PRE_HOST=; PRE_SITE=; PRE_LAND=https%3A%2F%2Fwww.lagou.com%2F; TG-TRACK-CODE=index_search; SEARCH_ID=aa07c0c9fe7641ac86b84e57447a61a0; LGRID=20190116171445-2a4f02e4-196f-11e9-b67a-5254005c3644; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1547630085"
+            'Cookie': "user_trace_token=20181224221417-14f12a99-306e-4271-b1ae-ea8181048de5; _ga=GA1.2.495178308.1545660858; LGUID=20181224221419-340dd7c0-0786-11e9-a954-5254005c3644; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22167e2527ce71e1-06b5de01b08e72-b781636-1049088-167e2527ce9859%22%2C%22%24device_id%22%3A%22167e2527ce71e1-06b5de01b08e72-b781636-1049088-167e2527ce9859%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; JSESSIONID=ABAAABAAAIAACBI533E5D5C9B7929F6CE9069706B9DE992; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1546951443,1547301394,1547630032,1547724764; _gat=1; _gid=GA1.2.973674907.1547724764; LGSID=20190117193243-9af5ed35-1a4b-11e9-b681-5254005c3644; PRE_UTM=; PRE_HOST=; PRE_SITE=; PRE_LAND=https%3A%2F%2Fwww.lagou.com%2F; index_location_city=%E5%8C%97%E4%BA%AC; TG-TRACK-CODE=index_search; SEARCH_ID=ebeb56a526e645acbeec9d8008cb220a; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1547724858; LGRID=20190117193417-d2b58b23-1a4b-11e9-b681-5254005c3644"
         }
         self.baseurl = "https://www.lagou.com/jobs/positionAjax.json?px=default&city=" + \
                        self.city + "&needAddtionalResult=false"
         self.Record = []
-        self.Recordpath = 'E:\\\saveData\\'
+        self.Recordpath = '.\\saveData\\'
         self.session = requests.Session()
+        if not os.path.exists(self.Recordpath):
+            os.makedirs(self.Recordpath)
 
     def saveRecord(self):
         df = pd.DataFrame(self.Record)
