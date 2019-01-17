@@ -4,7 +4,7 @@
 拉勾网IT薪资分析报表
 write the code, change the worls
 """
-__author__ = "liuzujun"
+__author__ = "open_china"
 __time__ = "2018.12.27"
 
 import pandas as pd
