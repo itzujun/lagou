@@ -22,15 +22,16 @@ Cookie，Referer，User-Agent 需爬虫手动设置，后台有监测返爬虫�
 
 ### 数据可视化
 
-![image](bmp\show-1.jpg)
+### 区域部分
+![image](https://github.com/itzujun/lagou/blob/master/bmp/show-1.jpg)
 
-![image](bmp\show-1.jpg)
+### 学历要求
+![image](https://github.com/itzujun/lagou/blob/master/bmp/show-2.jpg)
 
+### 薪资部分
+![image](https://github.com/itzujun/lagou/blob/master/bmp/show-3.jpg)
 
-![image](bmp\show-2.jpg)
-
-
-![image](bmp\show-3.jpg)
-
+### 薪资部分
+![image](https://github.com/itzujun/lagou/blob/master/bmp/show-4.jpg)
 
 
