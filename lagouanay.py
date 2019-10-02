@@ -23,14 +23,14 @@ def draw_pie(path, title, attr, value):
 
 class LagouAnay(object):
     def __init__(self):
-        self.html_path = "./html"
-        self.file_path = './saveData'
+        self.html_path = "./html/"
+        self.file_path = './saveData/'
         if not os.path.exists(self.html_path):
             os.makedirs(self.html_path)
 
     def get_df_data(self):
         lis = os.listdir(self.file_path)
-        data_xls = pd.read_excel(self.file_path + "\\" + lis[0])  # 只解析第一个文件
+        data_xls = pd.read_excel(self.file_path + lis[0])  # 只解析第一个文件
         df = pd.DataFrame(data_xls)
         return df
 

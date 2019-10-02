@@ -29,16 +29,16 @@
 </script>
 </head>
 <body>
-    <div id="5b6f992da0cb4d1ba0d8da881587b8b5" style="width:800px;height:400px;"></div>
+    <div id="815895a3bbd44d82b6ddf65352fcead1" style="width:800px;height:400px;"></div>
     <script type="text/javascript">
 
-var myChart_5b6f992da0cb4d1ba0d8da881587b8b5 = echarts.init(document.getElementById('5b6f992da0cb4d1ba0d8da881587b8b5'), 'light', {renderer: 'canvas'});
+var myChart_815895a3bbd44d82b6ddf65352fcead1 = echarts.init(document.getElementById('815895a3bbd44d82b6ddf65352fcead1'), 'light', {renderer: 'canvas'});
 
-var option_5b6f992da0cb4d1ba0d8da881587b8b5 = {
+var option_815895a3bbd44d82b6ddf65352fcead1 = {
     "title": [
         {
-            "text": "\u85aa\u8d44\u5206\u5e03",
-            "left": "auto",
+            "text": "\u5de5\u7a0b\u5e08\u85aa\u8d44\u5206\u5e03\u56fe",
+            "left": "center",
             "top": "auto",
             "textStyle": {
                 "fontSize": 18
@@ -68,7 +68,7 @@ var option_5b6f992da0cb4d1ba0d8da881587b8b5 = {
             }
         }
     },
-    "series_id": 5869878,
+    "series_id": 3168595,
     "tooltip": {
         "trigger": "item",
         "triggerOn": "mousemove|click",
@@ -84,72 +84,64 @@ var option_5b6f992da0cb4d1ba0d8da881587b8b5 = {
     },
     "series": [
         {
-            "type": "pie",
+            "type": "funnel",
+            "name": "\u85aa\u8d44\u5206\u5e03",
             "data": [
                 {
-                    "name": "20k-25k",
-                    "value": 95.0
-                },
-                {
-                    "name": "30K+",
-                    "value": 85.0
-                },
-                {
                     "name": "10k-20k",
-                    "value": 62.0
+                    "value": 165.0
                 },
                 {
-                    "name": "25k-30k",
-                    "value": 38.0
+                    "name": "20k-25k",
+                    "value": 76.0
                 },
                 {
                     "name": "0-10k",
-                    "value": 5.0
+                    "value": 26.0
+                },
+                {
+                    "name": "30K+",
+                    "value": 11.0
+                },
+                {
+                    "name": "25k-30k",
+                    "value": 7.0
                 }
             ],
-            "radius": [
-                "30%",
-                "50%"
-            ],
-            "center": [
-                "50%",
-                "50%"
-            ],
-            "roseType": "radius",
+            "sort": "descending",
+            "gap": 0,
             "label": {
                 "normal": {
                     "show": true,
-                    "position": "outside",
+                    "position": "inside",
                     "textStyle": {
                         "fontSize": 12
                     },
-                    "formatter": "{b}: {d}%"
+                    "formatter": "{b}  {d}%"
                 },
                 "emphasis": {
                     "show": true,
                     "textStyle": {
                         "fontSize": 12
-                    },
-                    "formatter": "{b}: {d}%"
+                    }
                 }
-            },
-            "seriesId": 5869878
+            }
         }
     ],
     "legend": [
         {
             "data": [
-                "20k-25k",
+                "0-10k",
                 "30K+",
-                "10k-20k",
                 "25k-30k",
-                "0-10k"
+                "20k-25k",
+                "10k-20k"
             ],
             "selectedMode": "multiple",
             "show": true,
-            "left": "center",
+            "left": "right",
             "top": "top",
-            "orient": "horizontal",
+            "orient": "vertical",
             "textStyle": {
                 "fontSize": 12
             }
@@ -184,7 +176,7 @@ var option_5b6f992da0cb4d1ba0d8da881587b8b5 = {
         "#f6f5ec"
     ]
 };
-myChart_5b6f992da0cb4d1ba0d8da881587b8b5.setOption(option_5b6f992da0cb4d1ba0d8da881587b8b5);
+myChart_815895a3bbd44d82b6ddf65352fcead1.setOption(option_815895a3bbd44d82b6ddf65352fcead1);
 
 </script>
 </body>

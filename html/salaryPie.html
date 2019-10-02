@@ -29,16 +29,16 @@
 </script>
 </head>
 <body>
-    <div id="c345d2022cc24d5fbb1495839640c175" style="width:800px;height:400px;"></div>
+    <div id="1fbe8906ffeb48759d3354b33db0fe7e" style="width:800px;height:400px;"></div>
     <script type="text/javascript">
 
-var myChart_c345d2022cc24d5fbb1495839640c175 = echarts.init(document.getElementById('c345d2022cc24d5fbb1495839640c175'), 'light', {renderer: 'canvas'});
+var myChart_1fbe8906ffeb48759d3354b33db0fe7e = echarts.init(document.getElementById('1fbe8906ffeb48759d3354b33db0fe7e'), 'light', {renderer: 'canvas'});
 
-var option_c345d2022cc24d5fbb1495839640c175 = {
+var option_1fbe8906ffeb48759d3354b33db0fe7e = {
     "title": [
         {
-            "text": "\u5de5\u7a0b\u5e08\u85aa\u8d44\u5206\u5e03\u56fe",
-            "left": "center",
+            "text": "\u85aa\u8d44\u5206\u5e03",
+            "left": "auto",
             "top": "auto",
             "textStyle": {
                 "fontSize": 18
@@ -68,7 +68,7 @@ var option_c345d2022cc24d5fbb1495839640c175 = {
             }
         }
     },
-    "series_id": 7283268,
+    "series_id": 4186085,
     "tooltip": {
         "trigger": "item",
         "triggerOn": "mousemove|click",
@@ -84,64 +84,72 @@ var option_c345d2022cc24d5fbb1495839640c175 = {
     },
     "series": [
         {
-            "type": "funnel",
-            "name": "\u85aa\u8d44\u5206\u5e03",
+            "type": "pie",
             "data": [
                 {
-                    "name": "20k-25k",
-                    "value": 95.0
-                },
-                {
-                    "name": "30K+",
-                    "value": 85.0
-                },
-                {
                     "name": "10k-20k",
-                    "value": 62.0
+                    "value": 165.0
                 },
                 {
-                    "name": "25k-30k",
-                    "value": 38.0
+                    "name": "20k-25k",
+                    "value": 76.0
                 },
                 {
                     "name": "0-10k",
-                    "value": 5.0
+                    "value": 26.0
+                },
+                {
+                    "name": "30K+",
+                    "value": 11.0
+                },
+                {
+                    "name": "25k-30k",
+                    "value": 7.0
                 }
             ],
-            "sort": "descending",
-            "gap": 0,
+            "radius": [
+                "30%",
+                "50%"
+            ],
+            "center": [
+                "50%",
+                "50%"
+            ],
+            "roseType": "radius",
             "label": {
                 "normal": {
                     "show": true,
-                    "position": "inside",
+                    "position": "outside",
                     "textStyle": {
                         "fontSize": 12
                     },
-                    "formatter": "{b}  {d}%"
+                    "formatter": "{b}: {d}%"
                 },
                 "emphasis": {
                     "show": true,
                     "textStyle": {
                         "fontSize": 12
-                    }
+                    },
+                    "formatter": "{b}: {d}%"
                 }
-            }
+            },
+            "seriesId": 4186085
         }
     ],
     "legend": [
         {
             "data": [
-                "25k-30k",
-                "20k-25k",
                 "10k-20k",
+                "20k-25k",
                 "0-10k",
-                "30K+"
+                "30K+",
+                "25k-30k"
             ],
             "selectedMode": "multiple",
             "show": true,
-            "left": "right",
+            "left": "center",
             "top": "top",
-            "orient": "vertical",
+            "orient": "horizontal",
             "textStyle": {
                 "fontSize": 12
             }
@@ -176,7 +184,7 @@ var option_c345d2022cc24d5fbb1495839640c175 = {
         "#f6f5ec"
     ]
 };
-myChart_c345d2022cc24d5fbb1495839640c175.setOption(option_c345d2022cc24d5fbb1495839640c175);
+myChart_1fbe8906ffeb48759d3354b33db0fe7e.setOption(option_1fbe8906ffeb48759d3354b33db0fe7e);
 
 </script>
 </body>
