@@ -19,44 +19,47 @@ __time__ = "2018.12.25"
 # 网络爬虫
 class Spider(object):
     def __init__(self):
-        self.city = "北京"
-        self.worktype = "python"
-        self.maxindex = 20
+        self.city = "成都"
+        self.work_type = "python"
+        self.max_index = 20
         # Cookie，Referer，User-Agent
         self.headers = {
             'Host': 'www.lagou.com',
-            'Origin': 'https://www.lagou.com',
-            'Referer': 'https://www.lagou.com/jobs/list_python?labelWords=&fromSearch=true&suginput=',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
+            'Origin': 'https://www.lagou.com/',
+            'Referer': 'https://www.lagou.com/jobs/list_golang?labelWords=&fromSearch=true&suginput=',
+            'User-Agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
             'X-Requested-With': 'XMLHttpRequest',
-            'Cookie': "user_trace_token=20181224221417-14f12a99-306e-4271-b1ae-ea8181048de5; _ga=GA1.2.495178308.1545660858; LGUID=20181224221419-340dd7c0-0786-11e9-a954-5254005c3644; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22167e2527ce71e1-06b5de01b08e72-b781636-1049088-167e2527ce9859%22%2C%22%24device_id%22%3A%22167e2527ce71e1-06b5de01b08e72-b781636-1049088-167e2527ce9859%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E7%9B%B4%E6%8E%A5%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22%22%2C%22%24latest_referrer_host%22%3A%22%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC_%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80%22%7D%7D; JSESSIONID=ABAAABAAAIAACBI533E5D5C9B7929F6CE9069706B9DE992; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1546951443,1547301394,1547630032,1547724764; _gat=1; _gid=GA1.2.973674907.1547724764; LGSID=20190117193243-9af5ed35-1a4b-11e9-b681-5254005c3644; PRE_UTM=; PRE_HOST=; PRE_SITE=; PRE_LAND=https%3A%2F%2Fwww.lagou.com%2F; index_location_city=%E5%8C%97%E4%BA%AC; TG-TRACK-CODE=index_search; SEARCH_ID=ebeb56a526e645acbeec9d8008cb220a; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1547724858; LGRID=20190117193417-d2b58b23-1a4b-11e9-b681-5254005c3644"
-        }
-        self.baseurl = "https://www.lagou.com/jobs/positionAjax.json?px=default&city=" + \
-                       self.city + "&needAddtionalResult=false"
-        self.Record = []
-        self.Recordpath = '.\\saveData\\'
-        self.session = requests.Session()
-        if not os.path.exists(self.Recordpath):
-            os.makedirs(self.Recordpath)
+            'Cookie': "JSESSIONID=ABAAABAAADEAAFIC485EAD4A087F3E3F9A8E2F54188D74F; WEBTJ-ID=20191002114529-16d8a92a6b68d5-0c6a2b42679b38-1d3d6b55-1296000-16d8a92a6b7375; _ga=GA1.2.1502959086.1569987930; _gid=GA1.2.795525759.1569987930; Hm_lvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1569987930; user_trace_token=20191002114529-1431f998-e4c7-11e9-97a2-525400f775ce; LGSID=20191002114529-1431fb48-e4c7-11e9-97a2-525400f775ce; PRE_UTM=; PRE_HOST=; PRE_SITE=; PRE_LAND=https%3A%2F%2Fwww.lagou.com%2F; LGUID=20191002114529-1431fcdb-e4c7-11e9-97a2-525400f775ce; gate_login_token=d580c481b29cd714e057a400f6ba350e192c304741678bda; LG_LOGIN_USER_ID=850442ddf49abacc9f4f420e3b32c80ed758ee9c258afefc; LG_HAS_LOGIN=1; _putrc=9F1804B9DF6EA72C; login=true; unick=%E5%88%98%E7%A5%96%E5%86%9B; showExpriedIndex=1; showExpriedCompanyHome=1; showExpriedMyPublish=1; hasDeliver=120; privacyPolicyPopup=false; index_location_city=%E6%88%90%E9%83%BD; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2216d8a9302437af-00cf9e5b0e50cc-1d3d6b55-1296000-16d8a930244b7f%22%2C%22%24device_id%22%3A%2216d8a9302437af-00cf9e5b0e50cc-1d3d6b55-1296000-16d8a930244b7f%22%7D; sajssdk_2015_cross_new_user=1; _gat=1; TG-TRACK-CODE=index_search; SEARCH_ID=e515534b3e5b47afa85de6dc2ec8bb5c; X_HTTP_TOKEN=23d63e1f4096458f91888996517d075c275ebf5eee; Hm_lpvt_4233e74dff0ae5bd0a3d81c6ccf756e6=1569988819; LGRID=20191002120019-2651dca3-e4c9-11e9-97a2-525400f775ce",
 
-    def saveRecord(self):
-        df = pd.DataFrame(self.Record)
+        }
+        self.base_url = "https://www.lagou.com/jobs/positionAjax.json?px=default&city=" + \
+                        self.city + "&needAddtionalResult=false"
+        self.record = []
+        self.record_path = './saveData'
+        self.session = requests.Session()
+        if not os.path.exists(self.record_path):
+            os.makedirs(self.record_path)
+        else:
+            print("pass it")
+
+    def save_record(self):
+        df = pd.DataFrame(self.record)
         df.to_excel(
-            self.Recordpath + "itwork-" + self.worktype + "-" + self.city + "-" + time.strftime('%Y%m%d') + ".xls",
+            self.record_path + "itwork-" + self.work_type + "-" + self.city + "-" + time.strftime('%Y%m%d') + ".xls",
             index=False)
         print("保存成功:",
-              self.Recordpath + "itwork-" + self.worktype + "-" + self.city + "-" + time.strftime('%Y%m%d') + ".xls")
+              self.record_path + "itwork-" + self.work_type + "-" + self.city + "-" + time.strftime('%Y%m%d') + ".xls")
         print(df.shape[0], df.shape[1])
-        print("len:", len(self.Record))
+        print("len:", len(self.record))
 
     def start(self):
         data = {
             'first': 'true',
             'pn': 1,
-            'kd': self.worktype,
+            'kd': self.work_type,
         }
-        print("url: ", self.baseurl)
-        req = self.session.post(self.baseurl, data=data, headers=self.headers)
+        print("url: ", self.base_url)
+        req = self.session.post(self.base_url, data=data, headers=self.headers)
         data = req.text
         data = json.loads(data)
 
@@ -64,22 +67,22 @@ class Spider(object):
         if "status" in data and data["status"] == False:
             print("错误信息:", data["msg"])
             return
-        cityname = data["content"]["positionResult"]["locationInfo"]["city"]
-        totalnum = data["content"]["positionResult"]["totalCount"]
-        pagenum = data["content"]["positionResult"]["resultSize"]
-        total_index = int(np.floor(totalnum / pagenum))
-        print(">>>>>>>>>  ", total_index, pagenum, total_index, cityname)
-        spider_index = min(total_index + 1, self.maxindex)
+        city_name = data["content"]["positionResult"]["locationInfo"]["city"]
+        total_num = data["content"]["positionResult"]["totalCount"]
+        page_num = data["content"]["positionResult"]["resultSize"]
+        total_index = int(np.floor(total_num / page_num))
+        print(">>>>>>>>>  ", total_index, page_num, total_index, city_name)
+        spider_index = min(total_index + 1, self.max_index)
         for i in range(1, spider_index):
             a = np.random.randint(100, 300)
             time.sleep(a / 1000)
             data = {
                 'first': 'true',
                 'pn': i,
-                'kd': self.worktype,
+                'kd': self.work_type,
             }
             try:
-                req = self.session.post(self.baseurl, data=data, headers=self.headers, timeout=5)
+                req = self.session.post(self.base_url, data=data, headers=self.headers, timeout=5)
                 data = req.text
                 print(data)
                 data = json.loads(data)
@@ -93,38 +96,39 @@ class Spider(object):
             if statue:
                 pass
             else:
-                print("False----, sleep 2", data)
                 time.sleep(2)  # sleep  for a wihile
                 continue
             result = data["content"]["positionResult"]["result"]
             for a in result:
-                record_d = {}
-                record_d["公司ID"] = a["companyId"]
-                record_d["职位"] = a["positionName"]
-                record_d["工作经验"] = a["workYear"]
-                record_d["学历要求"] = a["education"]
-                record_d["岗位性质"] = a["jobNature"]
-                record_d["城市"] = a["city"]
-                record_d["发布时间"] = a["createTime"]
-                record_d["所属行业"] = a["industryField"]
-                record_d["职位类别一"] = a["firstType"]
-                record_d["职位类别二"] = a["secondType"]
+                record_d = {
+                    "公司ID": a["companyId"],
+                    "职位": a["positionName"],
+                    "工作经验": a["workYear"],
+                    "学历要求": a["education"],
+                    "岗位性质": a["jobNature"],
+                    "城市": a["city"],
+                    "发布时间": a["createTime"],
+                    "所属行业": a["industryField"],
+                    "职位类别一": a["firstType"],
+                    "职位类别二": a["secondType"]
+                }
+
                 skill = a["skillLables"]
-                skill = "无" if len(skill) == 0 else  ",".join(skill)
+                skill = "无" if len(skill) == 0 else ",".join(skill)
                 record_d["技能"] = skill
                 record_d["薪资"] = a["salary"]
                 record_d["所属区域"] = a["district"]
                 record_d["公司全称"] = a["companyFullName"]
-                self.Record.append(record_d)
-            print("完成数据:", i, "/", pagenum, spider_index, totalnum)
-        self.saveRecord()
+                self.record.append(record_d)
+            print("完成数据:", i, "/", page_num, spider_index, total_num)
+        self.save_record()
 
 
 if __name__ == "__main__":
-    stime = time.time()
+    start_time = time.time()
     print("开始网络爬虫")
     spider = Spider()
     spider.start()
-    etime = time.time()
-    print("耗时：", etime - stime)
+    end_time = time.time()
+    print("耗时：", end_time - start_time)
     pass
