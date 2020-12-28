@@ -2,7 +2,7 @@
 
 """
 拉勾网IT薪资分析报表
-write the code, change the worls
+write the code, change the words
 """
 __author__ = "open_china"
 __time__ = "2018.12.27"

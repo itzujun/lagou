@@ -1,7 +1,7 @@
 #  _*_ coding:utf-8 _*_
 """
 拉勾网职位查询分析
-write the code, change the worls
+write the code, change the words
 """
 import json
 import sys
